@@ -7,6 +7,7 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [result, setResult] = useState('');
 
+<<<<<<< HEAD
   const validate = () => {
     const errors = [];
     if (login.trim().length < 3) {
@@ -49,12 +50,28 @@ function LoginForm() {
       }
     } catch (error) {
       setResult('❌ Ошибка при соединении: ' + String(error));
+=======
+  const handleSubmit = async (url: string) => {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ login, password }),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      setResult('✅ Успешно! Токен: ' + data.access_token);
+    } else {
+      setResult('❌ Ошибка: ' + (data.detail || 'неизвестно'));
+>>>>>>> 71d4628bb2d5f6ecfeb6110ebe4b36fce3dbf7f2
     }
   };
 
   return (
     <div className="form-container">
+<<<<<<< HEAD
       <h1>Tower Defence</h1>
+=======
+>>>>>>> 71d4628bb2d5f6ecfeb6110ebe4b36fce3dbf7f2
       <input
         type="text"
         placeholder="Логин"
@@ -71,7 +88,11 @@ function LoginForm() {
         <button onClick={() => handleSubmit(API_BASE + '/register')}>Зарегистрироваться</button>
         <button onClick={() => handleSubmit(API_BASE + '/login')}>Войти</button>
       </div>
+<<<<<<< HEAD
       <pre className="result">{result}</pre>
+=======
+      <div className="result">{result}</div>
+>>>>>>> 71d4628bb2d5f6ecfeb6110ebe4b36fce3dbf7f2
     </div>
   );
 }
