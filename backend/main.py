@@ -5,10 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from config import settings
 from database import Base, engine
 from auth.routes import router as auth_router
-<<<<<<< HEAD
 from levels.routes import router as level_router
-=======
->>>>>>> 71d4628bb2d5f6ecfeb6110ebe4b36fce3dbf7f2
 
 # Создание таблиц в БД
 Base.metadata.create_all(bind=engine)
@@ -27,7 +24,4 @@ app.add_middleware(
 
 # Подключение роутов
 app.include_router(auth_router)
-<<<<<<< HEAD
 app.include_router(level_router)
-=======
->>>>>>> 71d4628bb2d5f6ecfeb6110ebe4b36fce3dbf7f2
